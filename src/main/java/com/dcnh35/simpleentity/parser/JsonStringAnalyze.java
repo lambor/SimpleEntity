@@ -41,7 +41,8 @@ class JsonStringAnalyze {
 		/**  ,{, ... ,} =>  "{" "..." "..." "}" ""  */
 		String[] slices = sourceString.split(regex);
 
-
+		System.out.println("出错请贴出下面的输出信息/please issues me with information below");
+		System.out.println("=========================");
 		for(String slice:slices) {
 			System.out.println(slice);
 		}

@@ -182,7 +182,7 @@ public class JsonWrapper implements JavaWriter.Codable {
 
 		EntityClass clazz = new EntityClass(className);
 
-		System.out.println("metaDatas size:" + entity.metaDatas.size());
+//		System.out.println("metaDatas size:" + entity.metaDatas.size());
 		for (int i = 0; i < entity.metaDatas.size(); i++) {
 
 			String fieldMetaData = entity.metaDatas.get(i);
