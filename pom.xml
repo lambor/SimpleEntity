@@ -6,7 +6,7 @@
 
     <groupId>com.dcnh35</groupId>
     <artifactId>simpleentity</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <dependencies>
         <dependency>
             <groupId>com.squareup</groupId>
@@ -34,8 +34,22 @@
                 </configuration>
             </plugin>
 
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-jar-plugin</artifactId>-->
+                <!--<version>2.3.2</version>-->
+            <!--</plugin>-->
+
+
         </plugins>
 
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>bintray-lambor-simpleentity</id>
+            <name>lambor-simpleentity</name>
+            <url>https://api.bintray.com/maven/lambor/simpleentity/SimpleEntity/;publish=1</url>
+        </repository>
+    </distributionManagement>
 </project>
