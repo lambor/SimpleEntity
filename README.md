@@ -42,30 +42,14 @@ public class MyFirstEntity {
 **0x00** use gradle plugin [SimpleEntityHelper](https://github.com/lambor/SimpleEntityHelper)  
 ```
 //root project build.gradle
-repositories {
-        ...
-        maven {
-            url  "http://dl.bintray.com/lambor/simpleentity"
-        }
-    }
-dependencies {
+buildscript {
+  dependencies {
         ...
         classpath 'com.dcnh35:simpleentityhelper:1.0'
-    }
-```
-
-and
-```
-//root project build.gradle
-allprojects {
-    repositories {
-        ...
-        maven {
-            url  "http://dl.bintray.com/lambor/simpleentity"
-        }
-    }
+  }
 }
 ```
+
 
 **0x01** use SimpleEntity
 ```
