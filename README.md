@@ -45,7 +45,7 @@ public class MyFirstEntity {
 buildscript {
   dependencies {
         ...
-        classpath 'com.dcnh35:simpleentityhelper:1.0'
+        classpath 'com.dcnh35:simpleentityhelper:1.1'
   }
 }
 ```
