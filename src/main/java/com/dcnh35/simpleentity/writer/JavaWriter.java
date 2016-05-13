@@ -89,7 +89,6 @@ public class JavaWriter<T extends JavaWriter.Codable> {
     private MethodSpec getGetter(Codable.EntityField field) {
         MethodSpec getter = MethodSpec.methodBuilder("get" + field.fieldName)
                 .addModifiers(Modifier.PUBLIC)
-                .addParameter(field.fieldType, field.fieldName)
                 .addStatement("return this.$N", field.fieldName)
                 .returns(field.fieldType)
                 .build();

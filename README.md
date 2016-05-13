@@ -57,7 +57,7 @@ buildscript {
 
 dependencies {
     ...
-    compile 'com.dcnh35:simpleentity:1.1'
+    compile 'com.dcnh35:simpleentity:1.2'
 }
 
 apply plugin: 'simpleentityhelper'
