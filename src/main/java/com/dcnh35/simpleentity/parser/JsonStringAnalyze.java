@@ -25,23 +25,18 @@ class JsonStringAnalyze {
 		//split the json string
 		/**  { ... }  [ ... ] => ,{ ... ,} ,[ ... ,]  */
 		sourceString = sourceString.replaceAll("(?=[\\{\\[\\}\\]])", ",");
-//		System.out.println(sourceString);
-//		System.out.println("****************************");
-
 
 		/**  ,{ ... ,}  ,[ ... ,] => ,{, ... ,}, ,[, ... ,],  */
 		sourceString = sourceString.replaceAll("(?<=([\\{\\[\\}\\]]))", ",");
-//		System.out.println(sourceString);
-//		System.out.println("----------------------------");
 
 		 /**  }, => }  */
 		sourceString = sourceString.replaceAll(",$","");
-//		sourceString = sourceString.substring(0,sourceString.length()-1);
 
 		/**  ,{, ... ,} =>  "{" "..." "..." "}" ""  */
 		String[] slices = sourceString.split(regex);
 
-		System.out.println("出错请贴出下面的输出信息/please issues me with information below");
+		System.out.println("出错请贴出下面的输出信息");
+		System.out.println("please issues me with information below when error occurs");
 		System.out.println("=========================");
 		for(String slice:slices) {
 			System.out.println(slice);
@@ -118,10 +113,6 @@ class JsonStringAnalyze {
 		
 		return rootEntity;
 	}
-	
-	
-
-
 
 }
 

@@ -15,6 +15,7 @@ import com.squareup.javapoet.ParameterizedTypeName;
 import com.squareup.javapoet.TypeName;
 
 import static com.dcnh35.simpleentity.util.StringRegex.*;
+import static com.dcnh35.simpleentity.util.StringUtil.upperFirstChar;
 
 public class JsonWrapper implements JavaWriter.Codable {
 	
@@ -156,12 +157,12 @@ public class JsonWrapper implements JavaWriter.Codable {
 			return upperFirstChar(fieldName) + upperFirstChar(getPatternName());
 	}
 
-	private String upperFirstChar(String str) {
-		if("".equals(str)) return "";
-		String first = str.substring(0, 1);
-		String last = str.substring(1);
-		return first.toUpperCase() + last;
-	}
+//	private String upperFirstChar(String str) {
+//		if("".equals(str)) return "";
+//		String first = str.substring(0, 1);
+//		String last = str.substring(1);
+//		return first.toUpperCase() + last;
+//	}
 
 	public boolean isPublic() {
 		if (localConfig.isPublic().equals(BooleanState.True))

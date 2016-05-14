@@ -57,8 +57,6 @@ public class StringRegex {
 
 
 
-
-
     public static boolean isLongNumber(String data) {
         return data.matches("[0-9]+");
     }

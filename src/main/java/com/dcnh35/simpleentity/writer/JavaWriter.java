@@ -11,6 +11,8 @@ import javax.lang.model.element.Modifier;
 
 import com.squareup.javapoet.*;
 
+import static com.dcnh35.simpleentity.util.StringUtil.*;
+
 public class JavaWriter<T extends JavaWriter.Codable> {
 
     private ArrayList<T> dataSource;
@@ -59,7 +61,7 @@ public class JavaWriter<T extends JavaWriter.Codable> {
             boolean isPublic = field.isPublic;
             boolean isRenamed = field.isRenamed;
 
-            FieldSpec.Builder fieldBuilder = FieldSpec.builder(field.fieldType, field.fieldName, isPublic ? Modifier.PUBLIC : Modifier.PRIVATE);
+            FieldSpec.Builder fieldBuilder = FieldSpec.builder(field.fieldType, lowerFirstChar(field.fieldName), isPublic ? Modifier.PUBLIC : Modifier.PRIVATE);
             if (isRenamed) {
                 fieldBuilder.addAnnotation(ClassName.get("com.google.gson.annotations", "SerializedName"));
                 fieldBuilder.addJavadoc("@SerializedName(\"$s\")",field.serizableName);
@@ -87,7 +89,7 @@ public class JavaWriter<T extends JavaWriter.Codable> {
     }
 
     private MethodSpec getGetter(Codable.EntityField field) {
-        MethodSpec getter = MethodSpec.methodBuilder("get" + field.fieldName)
+        MethodSpec getter = MethodSpec.methodBuilder("get" + upperFirstChar(field.fieldName))
                 .addModifiers(Modifier.PUBLIC)
                 .addStatement("return this.$N", field.fieldName)
                 .returns(field.fieldType)
@@ -96,7 +98,7 @@ public class JavaWriter<T extends JavaWriter.Codable> {
     }
 
     private MethodSpec getSetter(Codable.EntityField field) {
-        MethodSpec setter = MethodSpec.methodBuilder("set" + field.fieldName)
+        MethodSpec setter = MethodSpec.methodBuilder("set" + upperFirstChar(field.fieldName))
                 .addModifiers(Modifier.PUBLIC)
                 .addParameter(field.fieldType, field.fieldName)
                 .addStatement("this.$N = $N", field.fieldName, field.fieldName)

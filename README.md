@@ -57,7 +57,7 @@ buildscript {
 
 dependencies {
     ...
-    compile 'com.dcnh35:simpleentity:1.2'
+    compile 'com.dcnh35:simpleentity:1.3'
 }
 
 apply plugin: 'simpleentityhelper'
@@ -138,7 +138,8 @@ public @interface EntitiesConfig {
     String packageName() default "com.dcnh.love35";
 
     /** generate enable or not, if you don't want to generate,just set false*/
-    boolean switchGenerate() default true;
+    /** you don't need to care about this, helper plugin will do this for you*/
+    boolean switchGenerate() default false;
 }
 ```
 
