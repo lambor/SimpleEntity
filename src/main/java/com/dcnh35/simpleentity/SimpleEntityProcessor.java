@@ -54,11 +54,12 @@ public class SimpleEntityProcessor extends AbstractProcessor{
                 messager.printMessage(Diagnostic.Kind.ERROR,"EntitiesConfig annotation must annotate on class type");
                 return true;
             }
-            if(!global.switchGenerate()) return true; //if not turn switch on, then not generate entity code.
+            if(global.skipGenerate()) return true; //if not turn switch on, then not generate entity code.
 
             for(Element innerElement : element.getEnclosedElements()) {
                 EntityConfig local = innerElement.getAnnotation(EntityConfig.class);
-                if(local!=null) {
+                if(local!=null && (!local.skip())) {
+//                    messager.printMessage(Diagnostic.Kind.ERROR,"skipGenerate:"+local.skip());
                     try {
                         JsonWrapper wrapper = new JsonWrapper((VariableElement) innerElement,global);
                         datas.add(wrapper);

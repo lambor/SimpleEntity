@@ -26,4 +26,7 @@ public @interface EntityConfig {
 
 	/** the generated entity class's packagename */
 	String packageName() default "";
+
+	/** skip this entity generate process or not*/
+	boolean skip() default false;
 }

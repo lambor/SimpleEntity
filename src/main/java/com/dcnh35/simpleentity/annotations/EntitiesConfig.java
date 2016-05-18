@@ -26,6 +26,6 @@ public @interface EntitiesConfig {
 	/** the entities ' packageName */
 	String packageName() default "com.dcnh.love35";
 
-	/** generate enable or not */
-	boolean switchGenerate() default false;
+	/** skip the generate process or not*/
+	boolean skipGenerate() default true;
 }

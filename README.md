@@ -45,7 +45,7 @@ public class MyFirstEntity {
 buildscript {
   dependencies {
         ...
-        classpath 'com.dcnh35:simpleentityhelper:1.1'
+        classpath 'com.dcnh35:simpleentityhelper:1.2'
   }
 }
 ```
@@ -57,7 +57,7 @@ buildscript {
 
 dependencies {
     ...
-    compile 'com.dcnh35:simpleentity:1.3'
+    compile 'com.dcnh35:simpleentity:1.5'
 }
 
 apply plugin: 'simpleentityhelper'
@@ -137,9 +137,9 @@ public @interface EntitiesConfig {
     /** the entities ' packageName */
     String packageName() default "com.dcnh.love35";
 
-    /** generate enable or not, if you don't want to generate,just set false*/
+    /** skip generate process or not*/
     /** you don't need to care about this, helper plugin will do this for you*/
-    boolean switchGenerate() default false;
+    boolean skipGenerate() default true;
 }
 ```
 
@@ -164,5 +164,8 @@ public @interface EntityConfig {
 
     /** the generated entity class's packagename */
     String packageName() default "";
+
+    /** skip this entity generate process or not*/
+    boolean skip() default false;
 }
 ```
